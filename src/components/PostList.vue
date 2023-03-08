@@ -3,7 +3,7 @@
     <div class="loading" v-if="isLoading">
       <img src="../assets/loading.gif" alt="" />
     </div>
-    <div class="posts">
+    <div v-else class="posts">
       <ul>
         <li>
           <div class="toobar">
@@ -37,9 +37,19 @@
             </span>
           </span>
           <!-- 标题 -->
-          <span>
-            {{ post.title }}
-          </span>
+          <router-link
+            :to="{
+              name: 'post_content',
+              params: {
+                id: post.id,
+              },
+            }"
+          >
+            <span>
+              {{ post.title }}
+            </span>
+          </router-link>
+
           <!-- 最终回复时间 -->
           <span class="last_reply">
             {{ post.last_reply_at | formatDate }}
@@ -87,9 +97,7 @@ export default {
 .PostList {
   background-color: #e1e1e1;
 }
-.posts {
-  padding-top: 10px;
-}
+
 
 .PostList img {
   height: 30px;

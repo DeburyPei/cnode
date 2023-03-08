@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Header></Header>
-    <PostList></PostList>
+    <!-- <PostList></PostList> -->
+    <div class="main">  
+    <router-view name="main"></router-view>
+
+    </div>
   </div>
 </template>
 
@@ -20,5 +24,11 @@ export default {
 <style>
   body{
     margin: 0;
+    background-color: #e1e1e1;
+  }
+  .main{
+    padding-top: 10px;
+    width:80%;
+    margin: 0 auto;
   }
 </style>
