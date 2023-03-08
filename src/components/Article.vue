@@ -7,6 +7,7 @@
       <div class="topic_header">
         <div class="topic_title">{{ post.title }}</div>
         <ul>
+           
           <li>· 发布于 {{ post.create_at | formatDate }}</li>
           <li>· 作者 {{ post.author.loginname }}</li>
           <li>· {{ post.visit_count }} 次浏览</li>
@@ -18,7 +19,15 @@
         <div class="topbar">{{ post.replies.length }} 回复</div>
         <div v-for="(reply, index) in post.replies" :key="index" class="replySec">
           <div class="replyUp">
-            <img :src="reply.author.avatar_url" alt="" />
+            <router-link :to="{
+                name:'user_info',
+                params:{
+                    name:reply.author.loginname
+                }
+            }">
+                <img :src="reply.author.avatar_url" alt="" />
+            </router-link>
+           
             <span>&nbsp;&nbsp; {{ reply.author.loginname }}</span>
             <span>&nbsp;&nbsp; {{ index + 1 }}楼 </span>
             <span v-if="reply.ups.length > 0" class="thumbups"> ☝ {{ reply.ups.length }} </span>
@@ -162,7 +171,8 @@ export default {
 }
 .thumbups{
     
-    flex: 1;
-    text-align: end;
+    /* flex: 1;
+    text-align: end; */
+    margin-left : auto;
 }
 </style>
