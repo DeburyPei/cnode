@@ -63,7 +63,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.userinfo = res.data.data;
-          console.log(this.userinfo);
+          
         })
         .catch((err) => {
           console.log(err);

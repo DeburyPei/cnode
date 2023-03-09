@@ -49,8 +49,17 @@ export default {
       post: {},
     };
   },
+  // 检测路由发生的变化
+  watch:{
+        '$route'(to,from){
+
+            this.getArticleData()
+        }
+    },
   methods: {
     getArticleData() {
+      // console.log(this.$route)
+
       // console.log(this.$route.params) 获取参数的
       this.$http
         .get(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
@@ -85,7 +94,7 @@ export default {
 
 .article:not(:first-child) {
   margin-right: 340px;
-  margin-top: 15px;
+  
 }
 
 #reply,

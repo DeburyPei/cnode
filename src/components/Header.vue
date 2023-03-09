@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <img src="../assets/cnodejs_light.svg" alt="">
+        <a href="/" class="shouye"><img src="../assets/cnodejs_light.svg" alt=""></a>
         <ul>
             <li><a href="#">首页</a></li>
             <li><a href="#">新手入门</a></li>
@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style scoped>
+    
     .header{
         background-color: #444544;
         height:50px;
@@ -27,9 +28,17 @@ export default {
         align-items: center;
         
     }
-     img{
-        max-width: 120px;
+    .shouye{
+        
+        width: 120px;
         margin-left: 10px;
+    }
+     img{
+        height: 100%;
+
+        /* max-width: 120px; */
+        /* width: 120px; */
+        
         
     }
      ul{
@@ -46,4 +55,5 @@ export default {
         color: #ccc;
 
     }
+    
 </style>
