@@ -56,26 +56,36 @@
             {{ post.last_reply_at | formatDate }}
           </span>
         </li>
+        <li>
+            <Pagination @handleList="renderList"></Pagination>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import Pagination from './Pagination.vue';
 export default {
   name: "PostList",
   data() {
     return {
       isLoading: false,
       posts: [],
+      postPage:1
     };
+  },
+  components:{
+    Pagination,
   },
   methods: {
     getData() {
       this.$http
         .get("https://cnodejs.org/api/v1/topics", {
-          page: 1,
-          limit: 20,
+            params:{
+                page:this.postPage,
+                limit:20
+              }
         })
         .then((res) => {
           this.isLoading = false; // 加载成功
@@ -86,6 +96,12 @@ export default {
           console.log(err);
         });
     },
+    renderList(page){
+        this.postPage = page
+        // console.log(page)
+        this.getData();
+
+    }
   },
   beforeMount() {
     this.isLoading = true; // 加载成功之前显示加载动画

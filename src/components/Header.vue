@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <a href="/" class="shouye"><img src="../assets/cnodejs_light.svg" alt=""></a>
+        <router-link :to="{name:'root'}">
+            <img src="../assets/cnodejs_light.svg" alt="">
+        </router-link>
         <ul>
             <li><a href="#">首页</a></li>
             <li><a href="#">新手入门</a></li>
@@ -28,16 +30,12 @@ export default {
         align-items: center;
         
     }
-    .shouye{
-        
-        width: 120px;
-        margin-left: 10px;
-    }
+   
      img{
-        height: 100%;
-
-        /* max-width: 120px; */
-        /* width: 120px; */
+        
+margin-left: 20px;
+        max-width: 120px; 
+        width: 120px;
         
         
     }
